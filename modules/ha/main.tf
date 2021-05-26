@@ -26,7 +26,7 @@ locals {
 
 # Generate a set of DO payloads *if* none are supplied as an input
 module "do_payloads" {
-  source                          = "../do-builder/"
+  source                          = "git::https://github.com/mjmenger/terraform-bigip-do-builder.git?ref=2.1.0-alpha" # "../do-builder/"
   num_instances                   = length(var.do_payloads) > 0 ? 0 : var.num_instances
   ntp_servers                     = var.ntp_servers
   timezone                        = var.timezone
