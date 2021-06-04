@@ -490,7 +490,7 @@ EOD
 }
 
 variable "internal_subnetwork_vip_cidrs" {
-  type    = list(list(string))
+  type    = list(list(list(string)))
   default = []
   validation {
     condition     = length(distinct([for cidr in flatten(var.internal_subnetwork_vip_cidrs) : can(regex("^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}/[0-9]{1,2}$", cidr)) ? "x" : "y"])) < 2
